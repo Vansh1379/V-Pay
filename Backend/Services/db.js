@@ -12,4 +12,4 @@ export const ConnectDb = async () => {
         console.log(e);
         throw e;
     }
-}
+};
