@@ -14,6 +14,16 @@ export const signupAuth = async (req, res, next) => {
             return
         }
 
+        // Check first Wheather user is existing or not 
+        const existingUser = await User.findOne({
+            username: req.body.username
+        })
+        if(existingUser){
+            return res.status(411).json({
+                msg: "Bsdk jake login kar"
+            })
+        }
+
         // after Input Validation we will connect moongose with it 
         await User.create({
             username: createPayload.username,
