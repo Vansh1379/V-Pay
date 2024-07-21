@@ -101,3 +101,33 @@ export const signinAuth = async (req, res, next) => {
         console.log(e);
     }
 }
+
+// ..............................................................................................................................
+
+export const updateAuth = async (req, res, next) => {
+    try {
+        const updatebody = req.body;
+        const updatePayload = updateValidation.safeParse(updatebody);
+
+        if (!updatePayload.success) {
+            res.status(411).json({
+                msg: "Wrong Input Sended Bitch!"
+            })
+            return
+        }
+
+        await User.updateOne(updatebody, {
+            id: req.userId
+        })
+
+        res.status(200).json({
+            msg: "User Updated Successfully"
+        })
+    }
+    catch (e) {
+        res.status(500).json({
+            msg: "Error Whiel Sending Imformation"
+        })
+        console.log(e);
+    }
+}
