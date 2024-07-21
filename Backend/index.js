@@ -1,13 +1,21 @@
 import express from "express";
 import cors from "cors";
 import { ConnectDb } from "./Services/db.js";
+import userRouter from "./Routes/mainRouter.js";
 
 
 const app = express();
 const PORT = 3000;
+const router = express.Router();
 
-app.use(express());
+app.use(express.json()); // to parse json to post request
 app.use(cors());
+
+
+
+app.use("/api/v1", userRouter);
+
+
 
 ConnectDb()
     .then(() => {

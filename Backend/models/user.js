@@ -1,7 +1,5 @@
 import mongoose, { Types } from "mongoose";
 
-
-
 // User Schema
 const UserSchema = new mongoose.Schema({
     username: {
