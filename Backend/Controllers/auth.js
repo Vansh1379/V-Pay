@@ -1,10 +1,14 @@
 import { signupValidation, signinValidation } from "../Services/inputValidation.js";
-import User from "../models/user.js"
+import User from "../models/user.js";
+import jwt from "jsonwebtoken";
+
+const jwtSecret = process.env.JWT_SECRET;
 
 
 export const signupAuth = async (req, res, next) => {
     try {
         const createPayload = req.body;
+        console.log(createPayload);
         const parsepayload = signupValidation.safeParse(createPayload);
 
         if (!parsepayload.success) {
@@ -25,15 +29,24 @@ export const signupAuth = async (req, res, next) => {
         }
 
         // after Input Validation we will connect moongose with it 
-        await User.create({
+        const newUser = await User.create({
             username: createPayload.username,
             firstName: createPayload.firstName,
             lastName: createPayload.lastName,
             password: createPayload.password
         })
 
-        res.json({
-            msg: " User Created Succesfully"
+        console.log(createPayload.username);
+
+        const userID = User._id;
+        const token = jwt.sign({
+            userID
+        }, jwtSecret);
+
+
+        res.status(200).json({
+            msg: " User Created Succesfully",
+            token: token
         })
 
 
@@ -41,6 +54,7 @@ export const signupAuth = async (req, res, next) => {
         res.status(500).json({
             msg: "Internal Server Error"
         });
+        console.log(e);
     }
 }
 

@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { ConnectDb } from "./Services/db.js";
 import userRouter from "./Routes/mainRouter.js";
+import bodyParser from "body-parser";
 
 
 const app = express();
@@ -11,6 +12,7 @@ const router = express.Router();
 
 app.use(express.json()); // to parse json to post request
 app.use(cors());
+app.use(bodyParser.json());
 
 
 app.use("/api/v1", userRouter);
