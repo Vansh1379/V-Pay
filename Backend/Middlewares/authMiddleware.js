@@ -19,9 +19,10 @@ const authMiddleware = (req, res, next) => {
         /*Assigning User ID: The decoded variable holds the payload data, which typically includes information like userId. By assigning req.userId = decoded.userId;, the middleware is adding the userId from the token to the request object.
 
         Accessing User ID in Routes: By doing this, any subsequent middleware or route handlers can access req.userId to know which user made the request. This is useful for authorization and other operations that need to know the user context.*/
-        req.userId = decode.userId;
-
-        next();
+        if (decode.userId) {
+            req.userId = decode.userId;
+            next();
+        }
     }
     catch (e) {
         res.status(403).json({
