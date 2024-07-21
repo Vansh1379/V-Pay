@@ -8,9 +8,10 @@ const app = express();
 const PORT = 3000;
 const router = express.Router();
 
+
 app.use(express.json()); // to parse json to post request
 app.use(cors());
-
+app.use(bodyparser.json());
 
 
 app.use("/api/v1", userRouter);
