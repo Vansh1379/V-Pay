@@ -1,4 +1,4 @@
-import { signupValidation, signinValidation } from "../Services/inputValidation.js";
+import { signupValidation, signinValidation, updateValidation } from "../Services/inputValidation.js";
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 

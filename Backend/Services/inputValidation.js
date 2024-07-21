@@ -12,4 +12,10 @@ const signinValidation = Zod.object({
     password: Zod.string().min(5),
 })
 
-export { signupValidation, signinValidation };
+const updateValidation = Zod.object({
+    password: Zod.string().min(5).toLowerCase(),
+    firstName: Zod.string().max(10),
+    lastName: Zod.string().max(10),
+})
+
+export { signupValidation, signinValidation, updateValidation };
