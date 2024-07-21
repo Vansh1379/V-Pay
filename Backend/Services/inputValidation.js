@@ -7,6 +7,4 @@ const signupValidation = Zod.object({
     password: Zod.string().min(5).toLowerCase(),
 })
 
-module.exports = {
-    signupValidation: signupValidation,
-}
+export default signupValidation;
