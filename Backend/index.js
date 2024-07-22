@@ -4,20 +4,15 @@ import { ConnectDb } from "./Services/db.js";
 import mainRouter from "./Routes/mainRouter.js";
 import bodyParser from "body-parser";
 
-
 const app = express();
 const PORT = 3000;
 const router = express.Router();
-
 
 app.use(express.json()); // to parse json to post request
 app.use(cors());
 app.use(bodyParser.json());
 
-
 app.use("/api/v1", mainRouter);
-
-
 
 ConnectDb()
     .then(() => {
@@ -29,5 +24,5 @@ ConnectDb()
     .catch((err) => {
         console.log("MongoDb is not connected due to some error");
         console.log(err);
-    })
+    });
 
