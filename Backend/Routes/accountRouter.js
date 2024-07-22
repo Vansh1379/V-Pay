@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { userBalance } from "../Controllers/accountAuth";
-import authMiddleware from "../Middlewares/authMiddleware";
+import { transferFunds, userBalance } from "../Controllers/accountAuth.js";
+import authMiddleware from "../Middlewares/authMiddleware.js";
 
 const router = Router();
 
 router.get("/balance", authMiddleware, userBalance);
-router.post("transfer", authMiddleware,);
+router.post("/transfer", authMiddleware, transferFunds);
 
 export default router; 

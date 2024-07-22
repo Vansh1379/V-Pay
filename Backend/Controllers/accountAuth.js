@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import User from "../models/user";
-import Account from "../models/accounts";
+import User from "../models/user.js";
+import Account from "../models/accounts.js";
 
 
 export const userBalance = async (req, res, next) => {
