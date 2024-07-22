@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { ConnectDb } from "./Services/db.js";
-import userRouter from "./Routes/mainRouter.js";
+import mainRouter from "./Routes/mainRouter.js";
 import bodyParser from "body-parser";
 
 
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.use("/api/v1", userRouter);
+app.use("/api/v1", mainRouter);
 
 
 

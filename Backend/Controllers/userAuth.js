@@ -1,5 +1,6 @@
 import { signupValidation, signinValidation, updateValidation } from "../Services/inputValidation.js";
 import User from "../models/user.js";
+import Account from "../models/accounts.js";
 import jwt from "jsonwebtoken";
 
 const jwtSecret = process.env.JWT_SECRET;
@@ -35,10 +36,17 @@ export const signupAuth = async (req, res, next) => {
             lastName: createPayload.lastName,
             password: createPayload.password
         })
-
         console.log(createPayload.username);
 
+        // now we will some random balance between 1 and 10000 to use whenever he signup's ->
         const userID = User._id;
+        await Account.create({
+            userID,
+            balance: 1 + Math.random() * 10000
+        })
+
+
+        // jwt token generation ->
         const token = jwt.sign({
             userID
         }, jwtSecret);
