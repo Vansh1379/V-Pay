@@ -89,7 +89,7 @@ export const signinAuth = async (req, res, next) => {
         });
 
         if (usercheck) {
-            const userID = User._id;
+            const userID = usercheck._id;
             const loginToken = jwt.sign({
                 userID
             }, jwtSecret);

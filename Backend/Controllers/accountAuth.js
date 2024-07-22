@@ -5,9 +5,9 @@ import Account from "../models/accounts.js";
 
 export const userBalance = async (req, res, next) => {
     try {
-        const userID = req.userId;
-        const account = await User.findById({
-            _id: userID
+        console.log(req.userId);
+        const account = await Account.findOne({
+            userID: req.userId,
         });
 
         console.log(account, "user account detail account controler");
@@ -35,12 +35,14 @@ export const transferFunds = async (req, res, next) => {
         session.startTransaction();
         // and fetch the amunt and reciver id 
         const { amount, to } = req.body;
+        console.log(to);
 
         // we will check wheather the the user sending money exists or not 
         const userID = req.userId;
         const account = await Account.findOne({
             userID
         }).session(session);
+
         // .session(session) meand that to continue the process or the process is not ended
 
         // we will check wheather the the user sending money have sufficient balance or not  
@@ -53,8 +55,10 @@ export const transferFunds = async (req, res, next) => {
 
         // we will check whether the reciver is present or not 
         const amountTo = await Account.findOne({
-            to
+            userID: to
         }).session(session);
+
+        console.log(amountTo);
 
         // if the reciver is not present then we will simply abort the tramsaction / session
         if (!amountTo) {
