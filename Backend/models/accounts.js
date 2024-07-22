@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { number, string } from "zod";
 
 const accountsSchema = new mongoose.Schema({
     userID: {

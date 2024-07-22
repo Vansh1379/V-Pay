@@ -9,9 +9,8 @@ const jwtSecret = process.env.JWT_SECRET;
 export const signupAuth = async (req, res, next) => {
     try {
         const createPayload = req.body;
-        console.log(createPayload);
+        // console.log(createPayload);
         const parsepayload = signupValidation.safeParse(createPayload);
-
         if (!parsepayload.success) {
             res.status(411).json({
                 msg: "Wrong Imoput Sended Bitch!"
@@ -36,14 +35,15 @@ export const signupAuth = async (req, res, next) => {
             lastName: createPayload.lastName,
             password: createPayload.password
         })
-        console.log(createPayload.username);
+        // console.log(createPayload.username);
 
         // now we will some random balance between 1 and 10000 to use whenever he signup's ->
-        const userID = User._id;
+        const userID = newUser._id;
         await Account.create({
             userID,
             balance: 1 + Math.random() * 10000
         })
+        console.log("Account created succefully");
 
 
         // jwt token generation ->
@@ -80,7 +80,7 @@ export const signinAuth = async (req, res, next) => {
             })
             return
         }
-        console.log(loginPayload.username);
+        // console.log(loginPayload.username);
 
         // now we will check wheather user is already signup or not 
         const usercheck = await User.findOne({

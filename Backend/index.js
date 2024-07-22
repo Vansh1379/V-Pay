@@ -21,7 +21,7 @@ app.use("/api/v1", mainRouter);
 
 ConnectDb()
     .then(() => {
-        console.log("Your Mongodb is coonected");
+        // console.log("Your Mongodb is coonected");
         app.listen(PORT, () => {
             console.log(`Your Server is running at Port ${PORT}`);
         });
