@@ -131,3 +131,29 @@ export const updateAuth = async (req, res, next) => {
         console.log(e);
     }
 }
+
+// ...............................................................................................................................
+
+export const getData = async (req, res, next) => {
+    try {
+        const filter = req.query.filter || "";
+
+        const users = await User.find({
+            $or: [{
+                firstName: {
+                    "$regex": filter
+                }
+            }, {
+                lastName: {
+                    "$regex": filter
+                }
+            }]
+        })
+        
+    }
+    catch (e) {
+    res.status(500).json({
+        msg: "Sorry Internal Server Error Can't give you data back!"
+    })
+}
+}
