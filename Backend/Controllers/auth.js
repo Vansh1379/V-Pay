@@ -149,11 +149,12 @@ export const getData = async (req, res, next) => {
                 }
             }]
         })
-        
+
     }
     catch (e) {
-    res.status(500).json({
-        msg: "Sorry Internal Server Error Can't give you data back!"
-    })
-}
+        res.status(500).json({
+            msg: "Sorry Internal Server Error Can't give you data back!"
+        })
+
+    }
 }
