@@ -138,6 +138,8 @@ export const getData = async (req, res, next) => {
     try {
         const filter = req.query.filter || "";
 
+        // logic explaination of or in notion {it is used to find any such related query or text in database}
+
         const users = await User.find({
             $or: [{
                 firstName: {
@@ -148,6 +150,16 @@ export const getData = async (req, res, next) => {
                     "$regex": filter
                 }
             }]
+        })
+
+        // gives the data back
+        res.json({
+            user : users.map(user => ({
+                username : user.username,
+                firstName : user.firstName,
+                lastName : user.lastName,
+                _id: user._id
+            }))
         })
 
     }
