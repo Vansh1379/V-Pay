@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -8,7 +7,14 @@ function App() {
 
   return (
     <>
-     
+      <BrowserRouter>
+        <Routes>
+          <Route path='/signup' element={ } />
+          <Route path='/signin' element={ } />
+          <Route path='/dashboard' element={ } />
+          <Route path='/send' element={ } />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
