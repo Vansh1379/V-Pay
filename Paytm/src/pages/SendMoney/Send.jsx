@@ -1,7 +1,7 @@
 import React from 'react'
 import SendMoney from '../../components/SendMoney';
 
-const SendMoney = () => {
+const Send = () => {
     return (
         <div>
             <SendMoney />
@@ -9,4 +9,4 @@ const SendMoney = () => {
     );
 }
 
-export default SendMoney;
+export default Send;

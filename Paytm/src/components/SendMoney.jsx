@@ -17,7 +17,7 @@ const SendMoney = () => {
                         </div>
                         <div className='space-y-4'>
                             <div className='space-y-2'>
-                                <label className='text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70' for="amount" >
+                                <label className='text-sm font-medium leading-none  peer-disabled:cursor-not-allowed peer-disabled:opacity-70' htmlFor="amount" >
                                     Amount (in Rs)
                                 </label>
                                 <input
