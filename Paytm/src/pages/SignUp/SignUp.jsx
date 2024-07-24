@@ -11,10 +11,10 @@ function SignUp() {
             <div className='rounded-lg bg-white w-80 text-center p-2 h-max px-4'>
                 <Heading label={"Sign Up"} />
                 <SubHeading label={"Enter your information to create an account"} />
-                <InputBox label={"First Name"} placeholder={"vansh"} />
-                <InputBox label={"Last Name"} placeholder={"kalra"} />
-                <InputBox placeholder="vansh@gmail.com" label={"Email"} />
-                <InputBox label={"Password"} placeholder={"123456"} />
+                <InputBox label={"First Name"} placeholder={"billu"} />
+                <InputBox label={"Last Name"} placeholder={"badmash"} />
+                <InputBox placeholder="chutiya@gmail.com" label={"Email"} />
+                <InputBox label={"Password"} placeholder={"********"} />
                 <div className='pt-4'>
                     <Button label={"Sign Up"} />
                 </div>
