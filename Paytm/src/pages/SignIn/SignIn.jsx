@@ -5,7 +5,7 @@ import InputBox from '../../components/InputBox';
 import Button from '../../components/Button';
 import BottomWarning from '../../components/BottomWarning';
 
-function SignIn({ label }) {
+const SignIn = ({ label }) => {
     return (
         <div className='bg-slate-300 h-screen flex justify-center items-center'>
             <div className='flex flex-col justify-center'>
@@ -15,9 +15,9 @@ function SignIn({ label }) {
                     <InputBox label={"Email"} placeholder={"my@gmail.com"} />
                     <InputBox label={"Password"} placeholder={"********"} />
                     <div className='pt-4'>
-                            <Button label={"Sign in"}/>
+                        <Button label={"Sign in"} />
                     </div>
-                    <BottomWarning label={"Don't have an account?"} bottomtext={"Sign Up"} to={"/signup"}/>
+                    <BottomWarning label={"Don't have an account?"} bottomtext={"Sign Up"} to={"/signup"} />
                 </div>
             </div>
         </div>

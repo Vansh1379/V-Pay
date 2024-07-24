@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SendMoney() {
+const SendMoney = () => {
     return (
         <div>SendMoney</div>
     );

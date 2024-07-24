@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InputBox({ label, placeholder }) {
+const InputBox = ({ label, placeholder }) => {
     return (
         <div>
             <div className='text-sm font-medium text-left py-2'>
