@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SignIn({ label }) {
+function Heading({ label }) {
     return (
         <div className='font-bold text-4xl pt-6'>
             {label}
@@ -8,4 +8,4 @@ function SignIn({ label }) {
     );
 }
 
-export default SignIn;
+export default Heading
