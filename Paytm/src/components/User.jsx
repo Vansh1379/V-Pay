@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import InputBox from './InputBox';
 import Button from './Button';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const User = () => {
     const [users, setusers] = useState([]);
@@ -33,6 +34,7 @@ const User = () => {
 }
 
 function Userlist({ user }) {
+    const navigate = useNavigate();
     return (
         <div className='flex justify-between'>
             <div className='flex'>
@@ -48,7 +50,9 @@ function Userlist({ user }) {
                 </div>
             </div>
             <div className='flex flex-col justify-center h-full'>
-                <Button label={"Send Money"} />
+                <Button onClick={(e) => {
+                    navigate("/send?id="+ user._id+"&name="+ user.firstName);
+                }} label={"Send Money"} />
             </div>
         </div>
     );
