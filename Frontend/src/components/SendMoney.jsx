@@ -12,7 +12,7 @@ const SendMoney = () => {
             <div className='h-full flex flex-col justify-center'>
                 <div className='border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg'>
                     <div className='flex flex-col space-y-1.5 p-6'>
-                        <h2 className='text-3xl font-bold text-center'>Send Money</h2>
+                        <h2 className='text-3xl font-bold text-center '>Send Money</h2>
                     </div>
                     <div className='p-6'>
                         <div className='flex items-center space-x-4'>
@@ -36,16 +36,34 @@ const SendMoney = () => {
                                     placeholder="Enter amount"
                                 />
                             </div>
-                            <button onClick={(e) => {
+                            <button onClick={() => {
                                 axios.post("http://localhost:3000/api/v1/account/transfer", {
                                     to: id,
                                     amount
                                 }, {
                                     headers: {
-                                        Authorization: "Bearer" + localStorage.getItem("token")
+                                        Authorization: "Bearer " + localStorage.getItem("token")
                                     }
                                 })
-                            }} class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white">
+                                    .then(response => {
+                                        // Handle successful response
+                                        console.log('Transfer successful:', response.data);
+                                    })
+                                    .catch(error => {
+                                        // Handle error
+                                        if (error.response) {
+                                            // The request was made and the server responded with a status code
+                                            // that falls out of the range of 2xx
+                                            console.error('Error response:', error.response.data);
+                                        } else if (error.request) {
+                                            // The request was made but no response was received
+                                            console.error('Error request:', error.request);
+                                        } else {
+                                            // Something happened in setting up the request that triggered an Error
+                                            console.error('Error message:', error.message);
+                                        }
+                                    });
+                            }} className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white">
                                 Initiate Transfer
                             </button>
                         </div>

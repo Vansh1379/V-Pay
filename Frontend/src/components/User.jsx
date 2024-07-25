@@ -18,13 +18,13 @@ const User = () => {
 
     return (
         <>
-            <div className='font-bold mt-6 text-lg'>
-                Users
+            <div className='font-bold mt-6 text-lg mx-3.5 '>
+                Bank Users :-
             </div>
-            <div className='my-2'>
+            <div className='my-2 mx-3.5 '>
                 <input onChange={(e) => {
                     setFilter(e.target.value);
-                }} type='text' placeholder='Search User.....' className='w-full px-2 py-1 border rounded border-slate-200'></input>
+                }} type='text' placeholder='Search user you wanna send money.....' className='w-full px-2 py-1 border rounded border-slate-200 hover:border-sky-600 border-2'></input>
             </div>
             <div>
                 {users.map(user => <Userlist user={user} />)}
@@ -36,9 +36,9 @@ const User = () => {
 function Userlist({ user }) {
     const navigate = useNavigate();
     return (
-        <div className='flex justify-between'>
-            <div className='flex'>
-                <div className='rounded-full h-12 w-12 bg-slate-200 flex justify-center mt-1 mr-2'>
+        <div className='flex justify-between  mx-3.5 '>
+            <div className='flex '>
+                <div className='rounded-full h-11 w-11 bg-slate-200 flex justify-center mt-1 mr-2 shadow'>
                     <div className='flex flex-col justify-center h-full text-xl'>
                         {user.firstName[0]}
                     </div>
@@ -49,9 +49,9 @@ function Userlist({ user }) {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col justify-center h-full'>
+            <div className='flex flex-col justify-center h-full items-center'>
                 <Button onClick={(e) => {
-                    navigate("/send?id="+ user._id+"&name="+ user.firstName);
+                    navigate("/send?id=" + user._id + "&name=" + user.firstName);
                 }} label={"Send Money"} />
             </div>
         </div>
