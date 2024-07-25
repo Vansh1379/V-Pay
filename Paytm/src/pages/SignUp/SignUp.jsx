@@ -4,6 +4,7 @@ import SubHeading from '../../components/SubHeading';
 import InputBox from '../../components/InputBox';
 import Button from '../../components/Button';
 import BottomWarning from '../../components/BottomWarning';
+import axios from "axios";
 
 const SignUp = () => {
     const [firstName, setFirstname] = useState("");
@@ -12,6 +13,7 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     return (
         <div className='bg-slate-300 h-screen flex justify-center items-center'>
+
             <div className='rounded-lg bg-white w-80 text-center p-2 h-max px-4'>
                 <Heading label={"Sign Up"} />
                 <SubHeading label={"Enter your information to create an account"} />
@@ -33,14 +35,15 @@ const SignUp = () => {
                 }} label={"Password"} placeholder={"********"} />
 
                 <div className='pt-4'>
-                    <Button onClick={() => {
+                    <Button onClick={async () => {
                         console.log("clicked");
-                        axios.post("http://localhost:3000/api/v1/user/signup", {
+                        const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
                             username,
                             password,
                             firstName,
                             lastName
-                        })
+                        });
+                        localStorage.setItem("token", response.data.token);
                     }} label={"Sign Up"} />
                 </div>
 

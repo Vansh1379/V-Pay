@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InputBox from './InputBox';
 import Button from './Button';
+import axios from 'axios';
 
 const User = () => {
-    const [users, setusers] = useState([{
-        firstName: "vansh",
-        lastName: "kumar",
-        _id: 1
-    }]);
+    const [users, setusers] = useState([]);
+    const [filter, setFilter] = useState("");
+
+    // add debouncing here
+    useEffect(() => {
+        axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter)
+            .then(response => {
+                setusers(response.data.user);
+            })
+    }, [filter]);
 
     return (
         <>
@@ -15,7 +21,9 @@ const User = () => {
                 Users
             </div>
             <div className='my-2'>
-                <input type='text' placeholder='Search User.....' className='w-full px-2 py-1 border rounded border-slate-200'></input>
+                <input onChange={(e) => {
+                    setFilter(e.target.value);
+                }} type='text' placeholder='Search User.....' className='w-full px-2 py-1 border rounded border-slate-200'></input>
             </div>
             <div>
                 {users.map(user => <Userlist user={user} />)}
