@@ -57,9 +57,12 @@
 
 ## API Endpoints
 
-- `POST /api/register` - Register a new user.
-- `POST /api/login` - Authenticate a user and receive a JWT.
-- `POST /api/transfer` - Transfer money between users (requires authentication).
+- `POST /api/v1/user/signup` - Register a new user.
+- `POST /api/v1/user/signin` - Authenticate a user and receive a JWT.
+- `GET /api/v1/user/bulk` - To get all user Data from backend.
+- `PUT /api/v1/user/` - To Update user imfo in backend.
+- `POST /api/v1/account/tranfer` - Transfer money between users (requires authentication).
+- `GET /api/v1/account/balance` - To check logedin user balance.
 
 ## Contributing
 
