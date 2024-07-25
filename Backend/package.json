@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "echo 'No build step specified'"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
