@@ -1,9 +1,10 @@
 import React from 'react'
+import Navbar from '../../components/Navbar'
 
 function LandingPage() {
   return (
-    <div>
-      <h1>Welcome to the Landing Page</h1>
+    <div className=' bg-slate-100'>
+      <Navbar />
     </div>
   )
 }
