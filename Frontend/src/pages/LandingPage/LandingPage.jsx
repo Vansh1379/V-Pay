@@ -1,10 +1,12 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/Landing Page/Navbar'
+import LandingBody from '../../components/Landing Page/Carousel'
 
 function LandingPage() {
   return (
-    <div className=' bg-slate-100'>
+    <div className='  '>
       <Navbar />
+      <LandingBody />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Navbar() {
+const Navbar = () => {
     const [navbarItems, setNavbarItems] = useState([
         { id: 1, content: "BUSINESS SOLUTIONS" },
         { id: 2, content: "PRESS" },
