@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AppImage from "../"
 
 const Card2 = () => {
     const [content, setContent] = useState([

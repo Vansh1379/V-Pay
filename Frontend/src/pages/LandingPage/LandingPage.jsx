@@ -9,7 +9,10 @@ function LandingPage() {
   return (
     <div className='  '>
       <Navbar />
-      <Fotter />
+    
+
+      <Card2 />
+
     </div>
   )
 }
