@@ -10,7 +10,7 @@ export default {
         'custom-gray': '#232028',
       },
       boxShadow: {
-        '3xl': '1px 2px 2px 2px rgba(0, 0, 0, 0.3)',
+        '3xl': '1px 3px 2px 3px rgba(0, 0, 0, 0.3)',
       },
     },
   },
