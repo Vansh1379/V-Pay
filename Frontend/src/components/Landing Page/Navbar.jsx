@@ -7,8 +7,7 @@ const Navbar = () => {
         { id: 3, content: "CAREERS" },
         { id: 4, content: "ABOUT US" },
         { id: 5, content: "BLOG" },
-        { id: 6, content: "CONTACT US" },
-        { id: 7, content: "TRUST & SAFETY" },
+        { id: 6, content: "CONTACT US" }
     ]);
 
     return (
@@ -27,6 +26,9 @@ const Navbar = () => {
                         {item.content}
                     </a>
                 ))}
+            </div>
+            <div>
+                <button type="button">button</button>
             </div>
         </div>
     );
