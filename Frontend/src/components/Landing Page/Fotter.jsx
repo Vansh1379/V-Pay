@@ -13,8 +13,8 @@ const Fotter = () => {
     { id: 9, name: 'payment Links' },
   ]);
   return (
-    <div>
-      <div className='flex w-[1268px] h-max justify-evenly my-5 '>
+    <div className='pt-8'>
+      <div className='flex w-[1268px] h-max justify-evenly my-5  '>
         <div className='my-1'>
           <div className='flex items-center gap-1.5'>
             <div className='ml-2'>

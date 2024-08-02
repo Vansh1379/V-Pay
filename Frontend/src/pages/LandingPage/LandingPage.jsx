@@ -9,9 +9,6 @@ function LandingPage() {
   return (
     <div className='  '>
       <Navbar />
-    
-
-      <Card2 />
 
     </div>
   )

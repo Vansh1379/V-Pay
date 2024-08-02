@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AppImage from "../"
+import AppImage from "../../assets/AppImage.png";
 
 const Card2 = () => {
     const [content, setContent] = useState([
@@ -9,7 +9,7 @@ const Card2 = () => {
     ]);
 
     return (
-        <div className='flex'>
+        <div className='flex '>
             <div className='p-5 ml-12'>
                 <div className='text-4xl font-medium text-sky-900 my-6'>
                     <h1>Simple, Fast & Secure</h1>
@@ -23,8 +23,8 @@ const Card2 = () => {
                     ))}
                 </div>
             </div>
-            <div className='w-[800px]'>
-                <img src="" alt="" srcset="" />
+            <div className='w-[800px] ml-20'>
+                <img src={AppImage} alt="AppImage" srcset="" className='h-[500px] object-fill' />
             </div>
         </div>
     );
