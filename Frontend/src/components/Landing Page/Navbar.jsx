@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
     const [navbarItems, setNavbarItems] = useState([
         { id: 1, content: "BUSINESS SOLUTIONS" },
         { id: 2, content: "PRESS" },
@@ -28,8 +31,14 @@ const Navbar = () => {
                 ))}
             </div>
             <div className='flex items-center'>
-                <button type="button" className=" w-[100px] border-black text-violet-800 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-0"> Sign Up</button>
-                <button type="button" className=" w-[100px] border-black text-violet-800 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-0"> Sign In</button>
+
+                <button type="button" className=" w-[100px] border-black text-violet-800 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-0" onClick={() => {
+                    navigate('/signup');
+
+                }}> Sign Up</button>
+                <button type="button" className=" w-[100px] border-black text-violet-800 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-0" onClick={()=>{
+                    navigate('/signin');
+                }}> Sign In</button>
             </div>
         </div>
     );

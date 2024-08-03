@@ -3,8 +3,8 @@ import React from 'react'
 const AppBar = () => {
     return (
         <div className='shadow h-14 flex justify-between mx-0.5'>
-            <div className='flex flex-col justify-center h-full ml-4 font-medium text-sky-900	'>
-                Paytm App
+            <div className='flex flex-col justify-center h-full ml-4 font-semibold text-sky-900	'>
+                V-Pay
             </div>
             <div className='flex'>
                 <div className='flex flex-col justify-center h-full mr-4'>
