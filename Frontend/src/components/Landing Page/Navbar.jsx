@@ -20,15 +20,16 @@ const Navbar = () => {
                 </div>
                 <h1 className='font-bold text-4xl text-violet-800 font-mono items-center'>V-Pay</h1>
             </div>
-            <div className='flex space-x-8 mr-10'>
+            <div className='flex space-x-8 mr-0'>
                 {navbarItems.map((item) => (
-                    <a key={item.id} className='text-base font-semibold text-violet-900 hover:text-sky-700 cursor-pointer'>
+                    <a key={item.id} className='text-base font-semibold text-violet-900 hover:text-sky-700 cursor-pointer '>
                         {item.content}
                     </a>
                 ))}
             </div>
-            <div>
-                <button type="button">button</button>
+            <div className='flex items-center'>
+                <button type="button" className=" w-[100px] border-black text-violet-800 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-0"> Sign Up</button>
+                <button type="button" className=" w-[100px] border-black text-violet-800 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 me-2 mb-0"> Sign In</button>
             </div>
         </div>
     );

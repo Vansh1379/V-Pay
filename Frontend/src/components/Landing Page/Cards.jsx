@@ -20,7 +20,7 @@ const Cards = () => {
             <div className='mx-20'>
                 <div className='flex h-[280px] justify-between'>
                     {imgLink.map((items) => (
-                        <img key={items.id} style={{ objectFit: 'cover' }} src={items.img} alt="not available" className='object-cover rounded-2xl h-[280px] w-[300px] border border-black hover:border-0 hover:shadow-3xl' />
+                        <img key={items.id} style={{ objectFit: 'cover' }} src={items.img} alt="not available" className='object-cover rounded-2xl h-[250px] w-[300px] border border-black hover:border-0 hover:shadow-3xl' />
                     ))}
                 </div>
             </div>

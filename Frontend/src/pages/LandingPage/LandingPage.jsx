@@ -9,7 +9,7 @@ import YourMoney from '../../components/Landing Page/YourMoney'
 
 function LandingPage() {
   return (
-    <div className='  '>
+    <div className=' overflow-x-auto' >
       <Navbar />
       <LandingBody />
       <Cards />
