@@ -11,7 +11,7 @@ const Card2 = () => {
     return (
         <div className='flex '>
             <div className='p-5 ml-12'>
-                <div className='text-4xl font-medium text-sky-900 my-6'>
+                <div className='text-4xl font-medium text-violet-800 my-6'>
                     <h1>Simple, Fast & Secure</h1>
                 </div>
                 <div className=''>

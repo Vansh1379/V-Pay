@@ -38,7 +38,7 @@ function Userlist({ user }) {
     return (
         <div className='flex justify-between  mx-3.5 '>
             <div className='flex '>
-                <div className='rounded-full h-11 w-11 bg-slate-200 flex justify-center mt-1 mr-2 shadow'>
+                <div className='rounded-full h-11 w-11 bg-violet-200 flex justify-center mt-1 mr-2 shadow'>
                     <div className='flex flex-col justify-center h-full text-xl'>
                         {user.firstName[0]}
                     </div>
