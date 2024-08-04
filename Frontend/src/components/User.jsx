@@ -3,6 +3,7 @@ import InputBox from './InputBox';
 import Button from './Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Modal from './Modal';
 
 const User = () => {
     const [users, setusers] = useState([]);
@@ -35,27 +36,44 @@ const User = () => {
 
 function Userlist({ user }) {
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <div className='flex justify-between  mx-3.5 '>
-            <div className='flex '>
+            <div className='flex ' onClick={openModal}>
+
                 <div className='rounded-full h-11 w-11 bg-violet-200 flex justify-center mt-1 mr-2 shadow'>
                     <div className='flex flex-col justify-center h-full text-xl'>
                         {user.firstName[0]}
                     </div>
                 </div>
+
                 <div className='flex flex-col justify-center h-full'>
                     <div>
                         {user.firstName} {user.lastName}
                     </div>
                 </div>
             </div>
+
             <div className='flex flex-col justify-center h-full items-center'>
                 <Button onClick={(e) => {
                     navigate("/send?id=" + user._id + "&name=" + user.firstName);
                 }} label={"Send Money"} />
             </div>
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+                <div className='flex items-center'>
+                    <p className='font-normal text-xl'>Username :- </p>
+                    <p className=' pl-5 font-normal'> {user.firstName} {user.lastName}</p>
+                </div>
+                <div className='pt-2'>
+                    <p className='font-normal text-xl'>Account Balance:- </p>
+                </div>
+            </Modal>
         </div>
     );
 }
 
-export default User 
+export default User;
