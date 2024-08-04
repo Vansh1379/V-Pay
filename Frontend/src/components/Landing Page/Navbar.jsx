@@ -14,7 +14,7 @@ const Navbar = () => {
     ]);
 
     return (
-        <div className='bg-violet-200 h-max flex items-center justify-between p-5 border-b border-zinc-950' style={{ position: 'sticky' }}>
+        <div className='bg-violet-200 h-max flex items-center justify-between p-5 border-b border-zinc-950 cursor-pointer'>
             <div className='flex items-center gap-1.5'>
                 <div className='ml-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.0} stroke="#0c4b6f" className="size-8 ">

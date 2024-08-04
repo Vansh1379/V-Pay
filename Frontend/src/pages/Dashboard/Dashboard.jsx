@@ -5,7 +5,7 @@ import User from '../../components/User';
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className='overflow-hidden'>
       <AppBar />
       <Balance value={"10,000"} />
 

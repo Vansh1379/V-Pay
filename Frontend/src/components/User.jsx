@@ -4,18 +4,47 @@ import Button from './Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Modal from './Modal';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const User = () => {
-    const [users, setusers] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState("");
 
-    // add debouncing here
-    useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter)
+    const fetchUsers = (filter) => {
+        setLoading(true);
+        axios.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
             .then(response => {
-                setusers(response.data.user);
+                setUsers(response.data.user);
+                setLoading(false);
             })
+            .catch(error => {
+                console.error("Error fetching users:", error);
+                setUsers([]);
+                setLoading(false);
+            });
+    };
+
+    useEffect(() => {
+        fetchUsers(filter);
     }, [filter]);
+
+    const handleFilterChange = (e) => {
+        setFilter(e.target.value);
+    };
+
+    const renderUserList = () => {
+        if (loading) {
+            return <SkeletonLoader count={7} />;
+        }
+
+        if (users.length === 0) {
+            return <div className="text-center py-4">Server is Down Currently</div>;
+        }
+
+        return users.map(user => <Userlist key={user._id} user={user} />);
+    };
 
     return (
         <>
@@ -23,16 +52,33 @@ const User = () => {
                 Bank Users :-
             </div>
             <div className='my-2 mx-3.5 '>
-                <input onChange={(e) => {
-                    setFilter(e.target.value);
-                }} type='text' placeholder='Search user you wanna send money.....' className='w-full px-2 py-1 border rounded border-slate-200 hover:border-sky-600 border-2'></input>
+                <input 
+                    onChange={handleFilterChange} 
+                    type='text' 
+                    placeholder='Search user you wanna send money.....' 
+                    className='w-full px-2 py-1 border rounded border-slate-200 hover:border-sky-600 border-2'
+                />
             </div>
             <div>
-                {users.map(user => <Userlist user={user} />)}
+                {renderUserList()}
             </div>
         </>
     );
 }
+
+const SkeletonLoader = ({ count }) => {
+    return Array(count).fill().map((_, index) => (
+        <div key={index} className="flex justify-between mx-3.5 my-2">
+            <div className="flex">
+                <Skeleton circle width={44} height={44} />
+                <div className="ml-2">
+                    <Skeleton width={120} />
+                </div>
+            </div>
+            <Skeleton width={100} height={30} />
+        </div>
+    ));
+};
 
 function Userlist({ user }) {
     const navigate = useNavigate();
@@ -44,20 +90,17 @@ function Userlist({ user }) {
     return (
         <div className='flex justify-between  mx-3.5 '>
             <div className='flex ' onClick={openModal}>
-
                 <div className='rounded-full h-11 w-11 bg-violet-200 flex justify-center mt-1 mr-2 shadow'>
                     <div className='flex flex-col justify-center h-full text-xl'>
                         {user.firstName[0]}
                     </div>
                 </div>
-
                 <div className='flex flex-col justify-center h-full'>
                     <div>
                         {user.firstName} {user.lastName}
                     </div>
                 </div>
             </div>
-
             <div className='flex flex-col justify-center h-full items-center'>
                 <Button onClick={(e) => {
                     navigate("/send?id=" + user._id + "&name=" + user.firstName);
