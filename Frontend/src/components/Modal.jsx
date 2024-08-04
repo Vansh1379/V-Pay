@@ -23,7 +23,7 @@ const Modal = ({ isOpen, onClose, children }) => {
                     <div className="relative flex-auto p-6">
                         {children}
                     </div>
-                    <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200 items-center pr-[160px] ">
+                    <div className="flex  justify-end p-6 border-t border-solid rounded-b border-slate-200 items-center pr-[160px] ">
                         <button
                             className="px-6 py-2 mb-1 mr-1 text-sm font-medium uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none border rounded-lg bg-red-500 text-white"
                             type="button"

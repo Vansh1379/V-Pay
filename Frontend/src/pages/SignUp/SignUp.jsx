@@ -53,12 +53,12 @@ const SignUp = () => {
                         } catch (error) {
                             console.error(error);
                             toast.error("Signup failed!"); // Show error toast notification
-                            Swal.fire({
-                                icon: "error",
-                                title: "Chal Bsdk ..",
-                                text: "Something went wrong!",
-                                footer: '<a href="#">Why do I have this issue?</a>'
-                            });
+                            // Swal.fire({
+                            //     icon: "error",
+                            //     title: "Chal Bsdk ..",
+                            //     text: "Something went wrong!",
+                            //     footer: '<a href="#">Why do I have this issue?</a>'
+                            // });
                         }
 
                     }} label={"Sign Up"} />
