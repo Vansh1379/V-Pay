@@ -4,8 +4,12 @@ import SubHeading from '../../components/SubHeading';
 import InputBox from '../../components/InputBox';
 import Button from '../../components/Button';
 import BottomWarning from '../../components/BottomWarning';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = ({ label }) => {
+    const notify = () => toast("You have succesfully signin!");
+
     return (
         <div className='bg-violet-200 h-screen flex justify-center items-center'>
             <div className='flex flex-col justify-center'>
