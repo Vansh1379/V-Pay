@@ -48,10 +48,7 @@ const User = () => {
 
     return (
         <div className='mr-10'>
-            <div className='font-medium  mt-6 text-2xl mx-3.5 pl-6 text-violet-900'>
-                Bank Users :-
-            </div>
-            <div className='my-4 mx-8 flex h-max '>
+            <div className='my-4 mx-8 flex h-max pl-[280px]'>
                 <input
                     onChange={handleFilterChange}
                     type='text'
@@ -61,6 +58,9 @@ const User = () => {
                 <div className='pl-5'>
                     <button type="button" className=" w-[100px] border-grey text-white bg-black  hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl  text-base px-6 py-2.5 me-2 mb-0 ">Search</button>
                 </div>
+            </div>
+            <div className='font-medium  mt-6 text-2xl mx-3.5 pl-6 text-violet-900 mb-6'>
+                Bank Users :
             </div>
             <div className=''>
                 {renderUserList()}
