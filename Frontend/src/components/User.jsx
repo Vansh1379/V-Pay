@@ -14,7 +14,7 @@ const User = () => {
 
     const fetchUsers = (filter) => {
         setLoading(true);
-        axios.get( `http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
+        axios.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
             .then(response => {
                 setUsers(response.data.user);
                 setLoading(false);
@@ -36,7 +36,7 @@ const User = () => {
 
     const renderUserList = () => {
         if (loading) {
-            return <SkeletonLoader count={7} />;
+            return <SkeletonLoader count={6} />;
         }
 
         if (users.length === 0) {
@@ -51,19 +51,22 @@ const User = () => {
             <div className='font-medium  mt-6 text-2xl mx-3.5 pl-6 text-violet-900'>
                 Bank Users :-
             </div>
-            <div className='my-4 mx-8  '>
+            <div className='my-4 mx-8 flex h-max '>
                 <input
                     onChange={handleFilterChange}
                     type='text'
                     placeholder='Search user you wanna send money.....'
                     className='w-[500px] px-5 py-2 rounded-3xl border-violet-900 hover:border-violet-300 border-2'
                 />
+                <div className='pl-5'>
+                    <button type="button" className=" w-[100px] border-grey text-white bg-black  hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl  text-base px-6 py-2.5 me-2 mb-0 ">Search</button>
+                </div>
             </div>
             <div className=''>
                 {renderUserList()}
             </div>
         </div>
-    );
+    )
 }
 
 const SkeletonLoader = ({ count }) => {

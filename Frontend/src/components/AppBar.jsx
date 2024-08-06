@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const AppBar = () => {
     const navigate = useNavigate();
     return (
-        <div className='shadow h-14 flex justify-between mx-0.5 bg-violet-100 shadow-lg w-full '>
+        <div className=' h-14 flex justify-between mx-0.5 bg-violet-100 shadow-lg w-full '>
             <div className='flex items-center gap-1.5 cursor-pointer' onClick={() => {
                 navigate('/');
             }}>
@@ -15,14 +15,17 @@ const AppBar = () => {
                 </div>
                 <h1 className='font-bold text-4xl text-violet-800 font-mono items-center'>V-Pay</h1>
             </div>
-            <div className='flex'>
+            <div className='flex items-center mr-2'>
                 <div className='flex flex-col justify-center h-full mr-4'>
-                    Hello
+                    Hello Vansh
                 </div>
                 <div className='rounded-full h-12 w-12 bg-violet-200 flex justify-center mt-1 mr-2'>
                     <div className='flex flex-col justify-center h-full text-xl'>
-                        U
+                        V
                     </div>
+                </div>
+                <div>
+                    <button type="button"  className=" w-[100px] border-black text-white bg-violet-700 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl  text-base px-6 py-1.5 me-2 mb-0">Logout</button>
                 </div>
             </div>
         </div>
