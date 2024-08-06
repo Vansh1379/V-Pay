@@ -14,7 +14,7 @@ const User = () => {
 
     const fetchUsers = (filter) => {
         setLoading(true);
-        axios.get(`http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
+        axios.get( `http://localhost:3000/api/v1/user/bulk?filter=${filter}`)
             .then(response => {
                 setUsers(response.data.user);
                 setLoading(false);
@@ -40,29 +40,29 @@ const User = () => {
         }
 
         if (users.length === 0) {
-            return <div className="text-center py-4">Server is Down Currently</div>;
+            return <div className="text-center py-4 pt-20">Server is Down Currently</div>;
         }
 
         return users.map(user => <Userlist key={user._id} user={user} />);
     };
 
     return (
-        <>
-            <div className='font-bold mt-6 text-lg mx-3.5 '>
+        <div className='mr-10'>
+            <div className='font-medium  mt-6 text-2xl mx-3.5 pl-6 text-violet-900'>
                 Bank Users :-
             </div>
-            <div className='my-2 mx-3.5 '>
-                <input 
-                    onChange={handleFilterChange} 
-                    type='text' 
-                    placeholder='Search user you wanna send money.....' 
-                    className='w-full px-2 py-1 border rounded border-slate-200 hover:border-sky-600 border-2'
+            <div className='my-4 mx-8  '>
+                <input
+                    onChange={handleFilterChange}
+                    type='text'
+                    placeholder='Search user you wanna send money.....'
+                    className='w-[500px] px-5 py-2 rounded-3xl border-violet-900 hover:border-violet-300 border-2'
                 />
             </div>
-            <div>
+            <div className=''>
                 {renderUserList()}
             </div>
-        </>
+        </div>
     );
 }
 
@@ -88,7 +88,7 @@ function Userlist({ user }) {
     const closeModal = () => setIsModalOpen(false);
 
     return (
-        <div className='flex justify-between  mx-3.5 '>
+        <div className='flex justify-between  mx-2  pl-6'>
             <div className='flex ' onClick={openModal}>
                 <div className='rounded-full h-11 w-11 bg-violet-200 flex justify-center mt-1 mr-2 shadow'>
                     <div className='flex flex-col justify-center h-full text-xl'>
