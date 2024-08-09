@@ -6,8 +6,8 @@ export const sendWelcomeEmail = async (to, username, amount) => {
             host: 'smtp.ethereal.email',
             port: 587,
             auth: {
-                user: 'presley.hudson32@ethereal.email',
-                pass: 'uenTCuQ9e8WVQghqTC'
+                user: 'waino.mueller@ethereal.email',
+                pass: 'nC8F2jrjypym6yyMbt'
             }
         });
 
@@ -20,8 +20,10 @@ export const sendWelcomeEmail = async (to, username, amount) => {
         };
 
         const info = await transporter.sendMail(mailOptions);
-        
+
         console.log("Message sent: %s", info.messageId);
+        return info;
+
     } catch (err) {
         console.error("Error sending email:", err);
     }
