@@ -1,8 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
+
 const AppBar = () => {
     const navigate = useNavigate();
+
+    const clearLocalStorage = () => {
+        localStorage.clear();
+        navigate('/');
+    }
+
     return (
         <div className=' h-14 flex justify-between mx-0.5 bg-violet-100 shadow-lg w-full '>
             <div className='flex items-center gap-1.5 cursor-pointer' onClick={() => {
@@ -25,7 +32,7 @@ const AppBar = () => {
                     </div>
                 </div>
                 <div>
-                    <button type="button" className=" w-[100px] border-black text-white bg-violet-700 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl  text-base px-6 py-1.5 me-2 mb-0">Logout</button>
+                    <button type="button" className=" w-[100px] border-black text-white bg-violet-700 border hover:bg-violet-700 hover:text-white hover:border-0 hover:shadow-lg hover:shadow-violet-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl  text-base px-6 py-1.5 me-2 mb-0" onClick={clearLocalStorage}>Logout</button>
                 </div>
             </div>
         </div>
