@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+const nodemailerPass = process.env.NODEMAILER_PASS;
 
 export const sendWelcomeEmail = async (to, username, amount) => {
     try {
@@ -8,7 +9,7 @@ export const sendWelcomeEmail = async (to, username, amount) => {
             port: 465,
             auth: {
                 user: 'vanshkalra1379@gmail.com',
-                pass: 'ppmsokvniipnonbx'
+                pass: nodemailerPass
             }
         });
 
