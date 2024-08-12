@@ -1,6 +1,6 @@
-# PAYTM
+# V-Pay
 
-**PAYTM** is a web application that enables users to send money from one account to another. It features a modern frontend built with React and Vite, along with a robust backend powered by Node.js and Express. 
+**V-Pay** is a web application that enables users to send money from one account to another. It features a modern frontend built with React and Vite, along with a robust backend powered by Node.js and Express. 
 
 ## Technologies Used
 
