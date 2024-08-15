@@ -2,12 +2,14 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const SendMoney = () => {
     const [searchParams] = useSearchParams();
     const [amount, setAmount] = useState("");
     const id = searchParams.get('id');
     const name = searchParams.get('name');
+    const navigate = useNavigate();
 
     const handleTransfer = async () => {
         try {
@@ -26,7 +28,8 @@ const SendMoney = () => {
                 text: 'Money sent successfully!',
                 icon: 'success'
             });
-        } catch (error) {
+        }
+        catch (error) {
             // Handle error
             if (error.response) {
                 console.error('Error response:', error.response.data);
