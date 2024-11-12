@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FullPageLoader from '../../components/FullPageLoader';
-import Swal from 'sweetalert2'
 
 
 // or via CommonJS
@@ -43,7 +42,7 @@ const SignUp = () => {
 
                             try {
                                 setIsLoading(true);
-                                const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
+                                const response = await axios.post("http://localhost:4000/api/v1/user/signup", {
                                     username,
                                     password,
                                     firstName,

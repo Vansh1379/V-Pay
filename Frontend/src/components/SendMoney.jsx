@@ -13,7 +13,7 @@ const SendMoney = () => {
 
     const handleTransfer = async () => {
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/account/transfer", {
+            const response = await axios.post("http://localhost:4000/api/v1/account/transfer", {
                 to: id,
                 amount
             }, {

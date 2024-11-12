@@ -5,7 +5,7 @@ import mainRouter from "./Routes/mainRouter.js";
 import bodyParser from "body-parser";
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 const router = express.Router();
 
 app.use(express.json()); // to parse json to post request
